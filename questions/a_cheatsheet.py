@@ -659,6 +659,33 @@ def canFinish(self, numCourses: int,prerequisites:List[List[int]]) -> bool:
         return True
 
 ##### Union Find
+class UnionFind:
+    def __init__(self, n: int):
+        self.parent = list(range(n))
+        self.size = [1] * n
+
+    def find(self, node: int) -> int:
+        if self.parent[node] != node:
+            self.parent[node] = self.find(self.parent[node])
+        return self.parent[node]
+
+    def union(self, first: int, second: int) -> bool:
+        root_first = self.find(first)
+        root_second = self.find(second)
+
+        if root_first == root_second:
+            return False
+
+        if self.size[root_first] < self.size[root_second]:
+            root_first, root_second = root_second, root_first
+
+        self.parent[root_second] = root_first
+        self.size[root_first] += self.size[root_second]
+        return True
+
+    def connected(self, first: int, second: int) -> bool:
+        return self.find(first) == self.find(second)
+    
 def findCircleNum(is_connected):
     n = len(is_connected)
     parent = list(range(n))
