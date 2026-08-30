@@ -1,7 +1,13 @@
 # Question: Find the final column for each ball dropped through a grid.
 #
 # LeetCode 1706: Where Will the Ball Fall.
-
+# Q:
+# 1. what is the magnitude of n we are looking at?
+# 2.can i assume if a ball gets stuck in the middle of the rows in a V shape,
+# or if it get stuck to a wall, i return -1 for it?
+# 3. for the the last row, if it doesnt get stuck,
+# do i return the column of it or the next column it rolls into?
+# 4. magnitude of m, n
 from typing import List
 
 

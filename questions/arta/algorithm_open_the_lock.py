@@ -1,6 +1,25 @@
 # Question: Find the minimum number of turns to open a four-wheel lock.
 #
 # LeetCode 752: Open the Lock.
+# 1. what defines a turn? for example if the unlock string is 3000,
+# start from 0000 to 3000, is it 1 turn, or 3 turns to get to 3000?
+# 2. always 4 digits number in string?
+# 3. deadend magnitude
+#
+#
+# ok my idea is to first keep the deadends in a set so at every time to check
+# if i am at a deadend, it takes a O(1) lookup to check it. my idea here is to
+# use a BFS approach where each queue element is (currCombination, numOfTurns).
+# at every turn i popleft from the queue and with the current combination,
+# first check if its the unlock, if yes return number of turns (guaranteed smallest).
+#  if deadend, dont process. if not, check if it has been visited(keep a visited set).
+# if visited, then dont process. else, there are 8 directions we can work with,
+# first slot turn up, turn down, second slot turn up, turn down, and so on and so
+# forth. does this sit well with you?
+#
+# Time complexity: O(2N * 10^N)
+# Space complexity: O(10^N)
+
 
 from collections import deque
 

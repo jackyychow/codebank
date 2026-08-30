@@ -1,7 +1,10 @@
 # Question: Find the best single buy/sell trade across multiple stock timelines.
 #
 # Return the buy minute, sell minute, ticker, and resulting profit.
-
+# Clarify:
+# 1. what is the magnitude of limits of each dict value.
+# 2. should i assume they have the same length (aka minutes)?
+# 3. if the maximum profit is a net loss, should i still compute it? meaning output the minimum loss or should i return a no-buy response?
 
 class MultiStock:
     # def __init__(self):
