@@ -5,7 +5,6 @@
 from typing import Any, Optional, Iterator, Tuple
 from collections import OrderedDict
 import unittest
-import threading
 
 class Node:
     def __init__(self, key, val):
@@ -13,7 +12,7 @@ class Node:
         self.val = val
         self.prev = self.next = None
 
-    
+
 class LRUCache:
     def __init__(self, capacity: int):
         self.cap = capacity

@@ -12,7 +12,7 @@ class Solution:
         prereq=defaultdict(list)
         for post,pre in prerequisites:
             prereq[post].append(pre)
-        
+
         visited=set()
         cycle=set()
         def dfs(course):
@@ -32,7 +32,7 @@ class Solution:
         for course in range(numCourses):
             if not dfs(course):
                 return False
-        
+
         return True
 
 
@@ -41,6 +41,10 @@ class Solution:
         order=[]
         visited=set()
         cycle=set()
+
+        prereq=defaultdict(list)
+        for pre,post in prerequisites:
+            prereq[post].append(pre)
 
         def dfs(course):
             if course in cycle:
@@ -58,11 +62,9 @@ class Solution:
 
             return True
 
-        prereq=defaultdict(list)
-        for pre,post in prerequisites:
-            prereq[post].append(pre)
 
-        
+
+
         for course in range(numCourses):
             if not dfs(course):
                 return []
